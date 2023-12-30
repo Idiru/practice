@@ -25,6 +25,7 @@ Hints:
 
 Use array methods like .filter(), .map(), and .reduce().
 Consider breaking the problem into smaller functions for clarity.
+
 Expected Output:
 
 An object or multiple values indicating the requested statistics.
