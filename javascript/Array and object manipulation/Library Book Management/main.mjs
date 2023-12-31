@@ -5,3 +5,44 @@ const library = [
     { id: 4, title: "Father Goriot", author: "Honoré de Balzac", year: 1835 },
     { id: 5, title: "Moby Dick", author: "Herman Melville", year: 1851 }
 ];
+
+
+function idSearch (array, id) {
+    let result = array.filter(item => item.id === id)
+    return result.map(item => item.title)
+}
+
+function authorSearch (array, author) {
+    let result = array.filter(item => item.author === author)
+    return result.map(item => item.title)
+}
+
+function dateRangeSearch (array, date) {
+    let result = array.filter(item => item.year < date)
+    return result.map(item => item.title)
+}
+
+function addBook (array, title, author, year) {
+    array.push({
+        id: array.length + 1,
+        title: title,
+        author: author,
+        year: year
+    })
+
+    return array
+}
+
+export function deleteBook (array, id) {
+    return array.filter(item => item.id !== id)
+}
+
+
+console.log("Search by ID: " + idSearch(library, 1))
+console.log("Search by author: " + authorSearch(library, "Honoré de Balzac"))
+console.log("Search by date range: " + dateRangeSearch(library, 1950))
+console.log("Add a book: " + addBook(library, "The stranger", "Albert Camus", 1942))
+console.log("Remove a book: " + deleteBook(library, 0))
+
+
+

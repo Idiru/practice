@@ -14,21 +14,15 @@ const library = [
 ];
 
 Tasks to Perform:
-1. Find a Book by its ID:
+1. Find a Book by its ID: Write a function that takes an ID as an argument and returns the corresponding book.
 
-2. Write a function that takes an ID as an argument and returns the corresponding book.
-Filter Books by Author:
+2. Filter Books by Author: Write a function that takes the name of an author and returns all books by that author.
 
-3. Write a function that takes the name of an author and returns all books by that author.
-Get a List of Books Published Before 1950:
+3. Get a List of Books Published Before 1950: Write a function that returns all books published before 1950.
 
-4. Write a function that returns all books published before 1950.
-Add a New Book:
+4. Add a New Book: Write a function to add a new book to the collection.
 
-5. Write a function to add a new book to the collection.
-Delete a Book by its ID:
-
-6. Write a function that takes an ID as an argument and removes the corresponding book from the collection.
+5. Delete a Book by its ID: Write a function that takes an ID as an argument and removes the corresponding book from the collection.
 
 Tips:
 Use array methods like find, filter, push, and splice.
