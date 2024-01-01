@@ -14,26 +14,54 @@ function idSearch (array, id) {
 
 function authorSearch (array, author) {
     let result = array.filter(item => item.author === author)
-    return result.map(item => item.title)
+    
+    if (result === undefined) {
+        return "No author found"
+    }
+
+    else {
+        return result.map(item => item.title)
+    }
 }
 
 function dateRangeSearch (array, date) {
-    let result = array.filter(item => item.year < date)
-    return result.map(item => item.title)
+    let filterBooks = array.filter(item => item.year < date)
+    let result = filterBooks.map(item => item.title)
+    
+    if (result.length < 1) {
+        return result
+    }
+
+    else {
+        "No books found"
+
+    }
+
+    
 }
 
-function addBook (array, title, author, year) {
-    array.push({
-        id: array.length + 1,
-        title: title,
-        author: author,
-        year: year
-    })
+function addBook (array && title && author && year) {
 
-    return array
+    if(array, title, author, year) {
+        array.push({
+            id: array.length + 1,
+            title: title,
+            author: author,
+            year: year
+        })
+    
+        return array
+
+    }
+
+    else {
+        return "Please provide all informations needed"
+    }
 }
 
 export function deleteBook (array, id) {
+
+    
     return array.filter(item => item.id !== id)
 }
 
@@ -42,7 +70,7 @@ console.log("Search by ID: " + idSearch(library, 1))
 console.log("Search by author: " + authorSearch(library, "Honoré de Balzac"))
 console.log("Search by date range: " + dateRangeSearch(library, 1950))
 console.log("Add a book: " + addBook(library, "The stranger", "Albert Camus", 1942))
-console.log("Remove a book: " + deleteBook(library, 0))
+console.log("Remove a book: " + deleteBook(library, 10))
 
 
 
