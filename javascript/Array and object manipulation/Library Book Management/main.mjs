@@ -6,43 +6,57 @@ const library = [
     { id: 5, title: "Moby Dick", author: "Herman Melville", year: 1851 }
 ];
 
-
+// Search a book by ID
 function idSearch (array, id) {
-    let result = array.filter(item => item.id === id)
-    return result.map(item => item.title)
+    let result = array.filter(item => item.id === id) // Filter the object with the right ID 
+
+    if (result.length === 0){ //If the ID does not exist, error message
+        return "This ID does not exist"
+    }
+
+    else {
+        return result.map(item => item.title) // Creation of a new array with the title of the book
+    }
 }
 
+// Find a book by author
 function authorSearch (array, author) {
-    let result = array.filter(item => item.author === author)
+    let result = array.filter(item => item.author === author) // Filter the object by author
     
-    if (result === undefined) {
+    if (result.length === 0) { // If the author does not exist, error message
         return "No author found"
     }
 
     else {
-        return result.map(item => item.title)
+        return result.map(item => item.title) // Else creation of a new array with the right book title
     }
 }
 
+// Find books by date range
 function dateRangeSearch (array, date) {
-    let filterBooks = array.filter(item => item.year < date)
-    let result = filterBooks.map(item => item.title)
+    let filterBooks = array.filter(item => item.year < date) // Filter the object by date range
     
-    if (result.length < 1) {
-        return result
+    if (filterBooks.length === 0) { // Error message if no books found
+        return "No books found"
     }
 
     else {
-        "No books found"
+       return filterBooks.map(item => item.title) // Else, display all books found
 
     }
 
     
 }
 
-function addBook (array && title && author && year) {
+function formatBookInfo(book) {
+    return `${book.id}: "${book.title}" by ${book.author}, published in ${book.year}`;
+}
 
-    if(array, title, author, year) {
+
+// Add a book in the list
+function addBook (array, title, author, year) {
+
+    if(array && title && author && year) { // Check if all data are provided
         array.push({
             id: array.length + 1,
             title: title,
@@ -50,25 +64,31 @@ function addBook (array && title && author && year) {
             year: year
         })
     
-        return array
+        return
 
     }
 
-    else {
+    else { // Error message if data are missing 
         return "Please provide all informations needed"
     }
 }
 
-export function deleteBook (array, id) {
+// Delete a book in the list
+function deleteBook (array, id) {
 
-    
-    return array.filter(item => item.id !== id)
+    if (id < 1 || id > array.length) { // If the ID does not exist, error message
+        return "This ID doesn not exist"
+    }
+
+    else { // Else, display the new book list 
+        return array.filter(item => item.id !== id)
+    }
 }
 
 
-console.log("Search by ID: " + idSearch(library, 1))
-console.log("Search by author: " + authorSearch(library, "Honoré de Balzac"))
-console.log("Search by date range: " + dateRangeSearch(library, 1950))
+// console.log("Search by ID: " + idSearch(library, 10))
+// console.log("Search by author: " + authorSearch(library, "Honor de Balzac"))
+// console.log("Search by date range: " + dateRangeSearch(library, 1950))
 console.log("Add a book: " + addBook(library, "The stranger", "Albert Camus", 1942))
 console.log("Remove a book: " + deleteBook(library, 10))
 
